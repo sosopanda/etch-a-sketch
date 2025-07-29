@@ -5,10 +5,19 @@ let resValue = 16;
 let divs = []
 let size = 0;
 
+function getRandomColor() {
+  let letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
 for(let i = 0 ; i < 256 ; i++){
     divs.push(document.createElement("div"));
     divs.at(i).addEventListener("mouseover", function (e) {
-        e.target.style.background = "grey";
+        e.target.style.background = getRandomColor();;
     });
 
     size = 800/(resValue);
@@ -34,7 +43,7 @@ res.addEventListener("click",() => {
     for(let i = 0 ; i < resValue*resValue ; i++){
         divs.push(document.createElement("div"));
         divs.at(i).addEventListener("mouseover", function (e) {
-            e.target.style.background = "grey";
+            e.target.style.background = getRandomColor();
         });
 
         size = 800/(resValue);
